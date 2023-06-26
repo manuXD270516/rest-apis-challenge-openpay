@@ -12,7 +12,6 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDate;
 import java.util.Date;
-import java.util.Locale;
 
 import jakarta.persistence.*;
 @MappedSuperclass
@@ -33,15 +32,15 @@ public abstract class BaseJpaEntity {
     private Integer status = 1;
 
 
-    //@Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
     @Column(name = "createdAt", nullable = false, updatable = false)
-    private LocalDate createdAt = LocalDate.now();
+    private Date createdAt = new Date();
 
-    //@Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate
     @Column(name = "lastModifiedAt")
-    private LocalDate lastModifiedAt;
+    private Date lastModifiedAt;
 
 
 }

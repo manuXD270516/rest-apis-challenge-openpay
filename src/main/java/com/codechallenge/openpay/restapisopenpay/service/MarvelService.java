@@ -17,7 +17,6 @@ import java.util.List;
 @Service
 public class MarvelService {
 
-    //ComicApiResponse    x;
     private final MarvelApiClientService marvelApiClientService;
 
     @Autowired

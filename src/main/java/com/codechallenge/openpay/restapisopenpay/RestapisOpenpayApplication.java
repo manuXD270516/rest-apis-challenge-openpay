@@ -7,10 +7,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootApplication(scanBasePackages = {
+@SpringBootApplication(exclude = {SecurityAutoConfiguration.class}
+        ,scanBasePackages = {
         "com.codechallenge.openpay.restapisopenpay"}
 )
 @ComponentScan(basePackages ={"com.codechallenge.library.clientapi", "com.codechallenge.openpay.restapisopenpay"} )
