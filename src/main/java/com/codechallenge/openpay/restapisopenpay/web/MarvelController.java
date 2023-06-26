@@ -1,6 +1,8 @@
 package com.codechallenge.openpay.restapisopenpay.web;
 
-import com.codechallenge.openpay.restapisopenpay.domain.Character;
+import com.codechallenge.library.clientapi.domain.CharacterData;
+import com.codechallenge.library.clientapi.domain.Result;
+import com.codechallenge.library.clientapi.service.MarvelApiClientService;
 import com.codechallenge.openpay.restapisopenpay.service.MarvelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,12 +20,12 @@ public class MarvelController {
     private MarvelService marvelService;
 
     @GetMapping("/characters")
-    public List<Character> getAllCharacters() {
+    public List<Result> getAllCharacters() {
         return marvelService.getAllCharacters();
     }
 
     @GetMapping("/characters/{id}")
-    public Character getCharacterById(@PathVariable int id) {
+    public Result getCharacterById(@PathVariable int id) {
         return marvelService.getCharacterById(id);
     }
 }

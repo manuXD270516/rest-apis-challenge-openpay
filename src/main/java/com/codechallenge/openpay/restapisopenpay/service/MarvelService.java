@@ -1,7 +1,14 @@
 package com.codechallenge.openpay.restapisopenpay.service;
 
 
-import com.codechallenge.openpay.restapisopenpay.domain.Character;
+import com.codechallenge.library.clientapi.domain.CharacterData;
+import com.codechallenge.library.clientapi.domain.ComicApiResponse;
+import com.codechallenge.library.clientapi.domain.Result;
+import com.codechallenge.library.clientapi.external.MarvelApiClient;
+import com.codechallenge.library.clientapi.service.MarvelApiClientService;
+import lombok.AllArgsConstructor;
+import org.hibernate.internal.build.AllowPrintStacktrace;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 //import com.codechallenge.library.clientapi.domain.CharacterData;
 
@@ -10,20 +17,27 @@ import java.util.List;
 @Service
 public class MarvelService {
 
-    //private com.codechallenge.openpay.clientapimarvel.external.MarvelApiClient marvelApiClient;
-    //com.codechallenge.openpay.clientapimarvel.domain.CharacterResponse x;
-    /*public MarvelService(com.codechallenge.openpay.clientapimarvel.external.MarvelApiClient marvelApiClient){
-        this.marvelApiClient = marvelApiClient;
-    }*/
+    //ComicApiResponse    x;
+    private final MarvelApiClientService marvelApiClientService;
 
-    public List<Character> getAllCharacters() {
+    @Autowired
+    public MarvelService(MarvelApiClientService marvelApiClientService){
+        this.marvelApiClientService = marvelApiClientService;
+    }
 
-        return null;
+    public List<Result> getAllCharacters() {
+        return marvelApiClientService.getCharacters()
+                .getData()
+                .getResults();
 
     }
 
-    public Character getCharacterById(int id) {
-        // Implement logic to retrieve a character by ID
-        return null;
+    public Result getCharacterById(int id) {
+        return marvelApiClientService.getCharacterById(id)
+                .getData()
+                .getResults()
+                .stream()
+                .findFirst()
+                .orElse(null);
     }
 }
