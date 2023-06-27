@@ -16,7 +16,6 @@ import java.util.List;
 public class LogsController {
 
 
-
     @Autowired
     private LogEndpointService logEndpointService;
 
