@@ -11,8 +11,8 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootApplication(exclude = {SecurityAutoConfiguration.class}
-        ,scanBasePackages = {
+@SpringBootApplication(/*exclude = {SecurityAutoConfiguration.class},*/
+        scanBasePackages = {
         "com.codechallenge.openpay.restapisopenpay"}
 )
 @ComponentScan(basePackages ={"com.codechallenge.library.clientapi", "com.codechallenge.openpay.restapisopenpay"} )

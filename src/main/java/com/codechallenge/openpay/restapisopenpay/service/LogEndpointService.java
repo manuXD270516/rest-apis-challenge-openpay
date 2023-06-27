@@ -5,6 +5,8 @@ import com.codechallenge.openpay.restapisopenpay.repository.LogEndpointRepositor
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class LogEndpointService {
     private final LogEndpointRepository logEndpointRepository;
@@ -20,4 +22,8 @@ public class LogEndpointService {
                 .build()
         );
     }
+    public List<LogEndpoint> getAll(){
+        return logEndpointRepository.findAll();
+    }
+
 }
