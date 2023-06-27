@@ -31,7 +31,7 @@ public class MarvelService {
 
     }
 
-    public Result getCharacterById(int id) {
+    public Result getCharacterById(long id) {
         return marvelApiClientService.getCharacterById(id)
                 .getData()
                 .getResults()
